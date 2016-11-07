@@ -1,0 +1,301 @@
+FORMAT: 1A
+HOST: http://polls.apiblueprint.org/
+
+# hotel-content-api/1.0/hotels
+
+Polls is a simple API allowing consumers to view polls nd vote in them.
+
+## Hotels Content API [/hotel-content-api/1.0/hotels]
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+        {
+        "auditData": {
+        "processTime": "",
+        "timestamp": "",
+        "requestHost": "",
+        "serverId": "",
+        "environment": "",
+        "release": ""
+        },
+        "hotel": {
+        "code": 0,
+        "name": {
+        "languageCode": "",
+        "content": ""
+        },
+        "description": {
+        "languageCode": "",
+        "content": ""
+        },
+        "country": {
+        "code": "",
+        "isoCode": "",
+        "description": {
+        "languageCode": "",
+        "content": ""
+        }
+        },
+        "destination": {
+        "code": "",
+        "name": {
+        "languageCode": "",
+        "content": ""
+        },
+        "countryCode": ""
+        },
+        "zone": {
+        "zoneCode": 0,
+        "name": "",
+        "description": {
+        "languageCode": "",
+        "content": ""
+        }
+        },
+        "coordinates": {
+        "longitude": 0,
+        "latitude": 0
+        },
+        "category": {
+        "code": "",
+        "description": {
+        "languageCode": "",
+        "content": ""
+        }
+        },
+        "chain": {
+        "code": "",
+        "description": {
+        "languageCode": "",
+        "content": ""
+        }
+        },
+        "accommodationType": {
+        "code": "",
+        "typeMultiDescription": {
+        "languageCode": "",
+        "content": ""
+        },
+        "typeDescription": ""
+        },
+        "boards": [
+        {
+        "code": "",
+        "description": {
+          "languageCode": "",
+          "content": ""
+        }
+        }
+        ],
+        "segments": [
+        {
+        "code": 0,
+        "description": {
+          "languageCode": "",
+          "content": ""
+        }
+        }
+        ],
+        "address": {
+        "languageCode": "",
+        "content": ""
+        },
+        "postalCode": "",
+        "city": {
+        "languageCode": "",
+        "content": ""
+        },
+        "email": "",
+        "license": "",
+        "giataCode": 0,
+        "phones": [
+        {
+        "phoneNumber": "",
+        "phoneType": ""
+        }
+        ],
+        "rooms": [
+        {
+        "roomCode": "",
+        "description": "",
+        "type": {
+          "code": "",
+          "description": {
+            "languageCode": "",
+            "content": ""
+          }
+        },
+        "characteristic": {
+          "code": "",
+          "description": {
+            "languageCode": "",
+            "content": ""
+          }
+        },
+        "roomFacilities": [
+          {
+            "facilityCode": 0,
+            "facilityGroupCode": 0,
+            "description": {
+              "languageCode": "",
+              "content": ""
+            },
+            "order": 0,
+            "number": "",
+            "indYesOrNo": false,
+            "indLogic": false,
+            "indFee": false,
+            "amount": "",
+            "currency": "",
+            "applicationType": ""
+          }
+        ],
+        "roomStays": [
+          {
+            "stayType": "",
+            "description": "",
+            "stayPosition": 0,
+            "facilityList": [
+              {
+                "facilityCode": 0,
+                "facilityGroupCode": 0,
+                "description": {
+                  "languageCode": "",
+                  "content": ""
+                },
+                "number ": ""
+              }
+            ]
+          }
+        ]
+        }
+        ],
+        "facilities": [
+        {
+        "facilityCode": 0,
+        "facilityGroupCode": 0,
+        "description": {
+          "languageCode": "",
+          "content": ""
+        },
+        "order": 0,
+        "number": "",
+        "indLogic": false,
+        "indFee": false,
+        "distance": "",
+        "ageFrom": "",
+        "ageTo": "",
+        "textValue": "",
+        "dateFrom": "",
+        "dateTo": "",
+        "timeFrom": "",
+        "timeTo": "",
+        "indYesOrNo": false,
+        "amount": "",
+        "currency": "",
+        "applicationType": ""
+        }
+        ],
+        "terminals": [
+        {
+        "terminalCode": "",
+        "terminalType": "",
+        "distance": 0,
+        "name": {
+          "languageCode": "",
+          "content": ""
+        },
+        "description": {
+          "languageCode": "",
+          "content": ""
+        }
+        }
+        ],
+        "interestPoints": [
+        {
+        "facilityCode": 0,
+        "facilityGroupCode": 0,
+        "order": 0,
+        "poiName": "",
+        "distance": ""
+        }
+        ],
+        "images": [
+        {
+        "type": {
+          "code": "",
+          "description": {
+            "languageCode": "",
+            "content": ""
+          }
+        },
+        "path": "",
+        "order": 0,
+        "roomCode": "",
+        "description": "",
+        "roomType": {
+          "code": "",
+          "description": {
+            "languageCode": "",
+            "content": ""
+          }
+        },
+        "characteristic": {
+          "code": "",
+          "description": {
+            "languageCode": "",
+            "content": ""
+          }
+        }
+        }
+        ]
+        }
+        }
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2015-08-05T08:40:51.620Z",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "votes": 0
+                    }
+                ]
+            }
