@@ -7,7 +7,12 @@ Polls is a simple API allowing consumers to view polls nd vote in them.
 
 ## Hotels Content API [/hotel-content-api/1.0/hotels]
 
-### List All Questions [GET]
+### Hotel Request [GET]
++Parameters
+    +fields - The list of fields to be received in the response
+    +language - 
+    +from
+    +to
 
 + Response 200 (application/json)
 
@@ -254,48 +259,1017 @@ Polls is a simple API allowing consumers to view polls nd vote in them.
         }
         }
 
-### Create a New Question [POST]
+
+## Hotels Details Request [/hotel-content-api/1.0/hotels/{hotel_code}]
+
+### Hotel Details Request [GET]
++Parameters
+    +language
+    +useSecondaryLanguage
+    
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "",
+            "timestamp": "",
+            "requestHost": "",
+            "serverId": "",
+            "environment": "",
+            "release": ""
+          },
+          "hotel": {
+            "code": 0,
+            "name": {
+              "languageCode": "",
+              "content": ""
+            },
+            "description": {
+              "languageCode": "",
+              "content": ""
+            },
+            "country": {
+              "code": "",
+              "isoCode": "",
+              "description": {
+                "languageCode": "",
+                "content": ""
+              }
+            },
+            "destination": {
+              "code": "",
+              "name": {
+                "languageCode": "",
+                "content": ""
+              },
+              "countryCode": ""
+            },
+            "zone": {
+              "zoneCode": 0,
+              "name": "",
+              "description": {
+                "languageCode": "",
+                "content": ""
+              }
+            },
+            "coordinates": {
+              "longitude": 0,
+              "latitude": 0
+            },
+            "category": {
+              "code": "",
+              "description": {
+                "languageCode": "",
+                "content": ""
+              }
+            },
+            "chain": {
+              "code": "",
+              "description": {
+                "languageCode": "",
+                "content": ""
+              }
+            },
+            "accommodationType": {
+              "code": "",
+              "typeMultiDescription": {
+                "languageCode": "",
+                "content": ""
+              },
+              "typeDescription": ""
+            },
+            "boards": [
+              {
+                "code": "",
+                "description": {
+                  "languageCode": "",
+                  "content": ""
+                }
+              }
+            ],
+            "segments": [
+              {
+                "code": 0,
+                "description": {
+                  "languageCode": "",
+                  "content": ""
+                }
+              }
+            ],
+            "address": {
+              "languageCode": "",
+              "content": ""
+            },
+            "postalCode": "",
+            "city": {
+              "languageCode": "",
+              "content": ""
+            },
+            "email": "",
+            "license": "",
+            "giataCode": 0,
+            "phones": [
+              {
+                "phoneNumber": "",
+                "phoneType": ""
+              }
+            ],
+            "rooms": [
+              {
+                "roomCode": "",
+                "description": "",
+                "type": {
+                  "code": "",
+                  "description": {
+                    "languageCode": "",
+                    "content": ""
+                  }
+                },
+                "characteristic": {
+                  "code": "",
+                  "description": {
+                    "languageCode": "",
+                    "content": ""
+                  }
+                },
+                "roomFacilities": [
+                  {
+                    "facilityCode": 0,
+                    "facilityGroupCode": 0,
+                    "description": {
+                      "languageCode": "",
+                      "content": ""
+                    },
+                    "order": 0,
+                    "number": "",
+                    "indYesOrNo": false,
+                    "indLogic": false,
+                    "indFee": false,
+                    "amount": "",
+                    "currency": "",
+                    "applicationType": ""
+                  }
+                ],
+                "roomStays": [
+                  {
+                    "stayType": "",
+                    "description": "",
+                    "stayPosition": 0,
+                    "facilityList": [
+                      {
+                        "facilityCode": 0,
+                        "facilityGroupCode": 0,
+                        "description": {
+                          "languageCode": "",
+                          "content": ""
+                        },
+                        "number ": ""
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "facilities": [
+              {
+                "facilityCode": 0,
+                "facilityGroupCode": 0,
+                "description": {
+                  "languageCode": "",
+                  "content": ""
+                },
+                "order": 0,
+                "number": "",
+                "indLogic": false,
+                "indFee": false,
+                "distance": "",
+                "ageFrom": "",
+                "ageTo": "",
+                "textValue": "",
+                "dateFrom": "",
+                "dateTo": "",
+                "timeFrom": "",
+                "timeTo": "",
+                "indYesOrNo": false,
+                "amount": "",
+                "currency": "",
+                "applicationType": ""
+              }
+            ],
+            "terminals": [
+              {
+                "terminalCode": "",
+                "terminalType": "",
+                "distance": 0,
+                "name": {
+                  "languageCode": "",
+                  "content": ""
+                },
+                "description": {
+                  "languageCode": "",
+                  "content": ""
+                }
+              }
+            ],
+            "interestPoints": [
+              {
+                "facilityCode": 0,
+                "facilityGroupCode": 0,
+                "order": 0,
+                "poiName": "",
+                "distance": ""
+              }
+            ],
+            "images": [
+              {
+                "type": {
+                  "code": "",
+                  "description": {
+                    "languageCode": "",
+                    "content": ""
+                  }
+                },
+                "path": "",
+                "order": 0,
+                "roomCode": "",
+                "description": "",
+                "roomType": {
+                  "code": "",
+                  "description": {
+                    "languageCode": "",
+                    "content": ""
+                  }
+                },
+                "characteristic": {
+                  "code": "",
+                  "description": {
+                    "languageCode": "",
+                    "content": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+
+## Location Countries [/hotel-content-api/1.0/locations/countries]
+### Location Countries [GET]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
 form of choices.
 
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
++Request
+    +Parameters
+        +fields
+        +language
+        +from
+        +to
+        
 + Response 201 (application/json)
 
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
+        {
+          "auditData": {    
+              "processTime": "",  
+              "timestamp": "", 
+              "requestHost": "",    
+              "serverId": "",    
+              "environment": "",  
+              "release": ""    
+          }, 
+          "destinations":[
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
+              "code": ""
+              "name": {    
+                "languageCode": "",            
+                "content": ""         
+              },
+              "countryCode": "", 
+              "isoCode": "", 
+              "zones": [
+               {
+                 "zoneCode": 0,
+                 "name": "",
+                 "description": {      
+                      "languageCode": "",   
+                      "content": ""   
+                 }
+               }
+              ],
+              "groupZones": [
+               {
+                 "groupZoneCode":"",
+                 "name": {
+                   "languageCode": "",   
+                   "content": ""          
+                 },
+                 "zones":[
+                     0
+                 ]
+               }
+             ] 
             }
+           ],
+           "from": 0, 
+           "to": 0,
+           "total": 0 
+         }
+         
+## Hotel Availability [/hotel-api/1.0/hotels]
+### Hotel Availability [POST]
+
+You may create your own question using this action. It takes a JSON
+object containing a question and a collection of answers in the
+form of choices.
+
++Request
+    Body
+    {
+   "stay": {
+      "checkIn": "2016-08-15",
+      "checkOut": "2016-08-20",
+      "shiftDays": "2"
+   },
+   "occupancies": [
+      {
+         "rooms": 1,
+         "adults": 2,
+         "children": 0,
+         "paxes": [
+            {
+               "type": "AD",
+               "age": 30
+            },
+            {
+               "type": "AD",
+               "age": 30
+            }
+         ]
+      }
+   ],
+   "hotels": {
+      "hotel": [
+         1,
+         271
+      ]
+   },
+   "rooms": {
+      "included": true,
+      "room": [
+         "DBT.ST"
+      ]
+   },
+   "keywords": {
+      "keyword": [
+         34,
+         38
+      ]
+   },
+   "accommodations": [
+      "HOTEL",
+      "HOSTEL"
+   ],
+   "boards": {
+      "included": true,
+      "board": [
+         "RO",
+         "BB"
+      ]
+   },
+   "reviews": [
+      {
+         "type": "TRIPADVISOR",
+         "maxRate": 5,
+         "minReviewCount": 3
+      }
+   ],
+   "filter": {
+      "minRate": 100,
+      "maxRate": 1700,
+      "minCategory": 3,
+      "maxCategory": 5,
+      "paymentType": "AT_HOTEL",
+      "maxRatesPerRoom": 3,
+      "packaging": true,
+      "hotelPackage": "YES",
+      "maxRooms": 2
+   },
+   "dailyRate": true
+}
+    
++ Response 200 (application/json)
+ 
+        {
+           "auditData": {
+              "processTime": "94",
+              "timestamp": "2015-09-14 09:45:48.316",
+              "serverId": "ws3xmi01",
+              "environment": "[itest, iSET_A, ehcache]",
+              "release": "4838",
+              "internal": "|02||2|5|null,null||||||||1"
+           },
+           "hotels": {
+              "hotels": [
+                 {
+                    "code": 2643,
+                    "name": "Club Marthas",
+                    "categoryCode": "4EST",
+                    "categoryName": "4 STARS",
+                    "destinationCode": "PMI",
+                    "destinationName": "Majorca",
+                    "zoneCode": 90,
+                    "zoneName": "Cala d'Or",
+                    "latitude": "39.364207",
+                    "longitude": "3.226974",
+                    "rooms": [
+                       {
+                          "code": "STU.C2",
+                          "name": "STUDIO",
+                          "rates": [
+                             {
+                                "rateKey": "2643|STU.C2|REP-OPACO|1|FB||1~1~1|8|20160608|20160610|W|N#236920111",
+                                "rateClass": "NOR",
+                                "rateType": "BOOKABLE",
+                                "net": "158.020",
+                                "allotment": 90,
+                                "paymentType": "AT_WEB",
+                                "packaging": false,
+                                "boardCode": "FB",
+                                "boardName": "FULL BOARD",
+                                "cancellationPolicies": [
+                                   {
+                                      "amount": "79.010",
+                                      "from": "2016-06-08T00:00:00+02:00"
+                                   }
+                                ],
+                                "rooms": 1,
+                                "adults": 1,
+                                "children": 1,
+                                "childrenAges": "8",
+                                "offers": [
+                                   {
+                                      "code": "9002",
+                                      "name": "Early Booking discount",
+                                      "amount": "-52.700"
+                                   }
+                                ]
+                             }
+                          ],
+                          "minRate": "86.320",
+                          "maxRate": "119.060",
+                          "currency": "EUR"
+                       }
+                    ],
+                    "checkIn": "2016-06-08",
+                    "checkOut": "2016-06-10",
+                    "total": 2
+                 }
+              ]
+           }
+        }
+
+## Chech Rates [/hotel-api/1.0/checkrates]
+### Checking Rate [GET]        
+
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "59",
+            "timestamp": "2015-09-14 11:26:08.395",
+            "serverId": "ws3xmi01",
+            "environment": "[itest, iSET_A, ehcache]",
+            "release": "4838",
+            "internal": "|null|null|null|null|0|0|0|N|null|null|null|null|null||||1"
+          },
+          "hotel": {
+            "checkIn": "2016-06-07",
+            "checkOut": "2016-06-09",
+            "code": 2643,
+            "name": "Club Marthas",
+            "categoryCode": "4EST",
+            "categoryName": "4 STARS",
+            "destinationCode": "PMI",
+            "destinationName": "Majorca",
+            "zoneCode": 90,
+            "zoneName": "Cala d'Or",
+            "latitude": "39.364207",
+            "longitude": "3.226974",
+            "rooms": [
+              {
+                "code": "APT.1B-C4",
+                "name": "APARTMENT",
+                "rates": [
+                  {
+                    "rateKey": "2643|APT.1B-C4|REP-OPACO|1|AI||1~2~2|8~8|20160607|20160609|W|N#-1095663616",
+                    "rateClass": "NOR",
+                    "rateType": "BOOKABLE",
+                    "net": "413.200",
+                    "rateComments": "BABY COT 4€ PAY DIRECTLY IN THE HOTEL Estimated total amount of taxes & fees for this booking: Estimated total amount of taxes & fees for this booking: payable on arrival. ",
+                    "paymentType": "AT_WEB",
+                    "packaging": false,
+                    "boardCode": "AI",
+                    "boardName": "ALL INCLUSIVE",
+                    "cancellationPolicies": [
+                      {
+                        "amount": "206.600",
+                        "from": "2016-06-07T00:00:00+02:00"
+                      }
+                    ],
+                    "rateBreakDown": {
+                      "rateDiscounts": [
+                        {
+                          "code": "EB",
+                          "name": "EARLY BOOKING",
+                          "amount": "-27.240"
+                        },
+                        {
+                          "code": "DN",
+                          "name": "CHILD",
+                          "amount": "-237.560"
+                        }
+                      ],
+                      "agCommission": "0.00",
+                      "commissionVAT": "0.00",
+                      "commissionPCT": "0.00"
+                    },
+                    "rooms": 1,
+                    "adults": 2,
+                    "children": 2,
+                    "childrenAges": "8~8"
+                  }
+                ]
+              }
+            ],
+            "totalSellingRate": "413.200",
+            "totalNet": "0.000",
+            "currency": "EUR"
+          }
+
+
+## Booking List [/hotel-api/1.0/bookingss]
+### Booking List [GET]        
+
++Request
+    +Parameters
+        +start
+        +end
+        +filterType
+        +includeCancelled
+        +from
+        +to
+        
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "3727",
+            "timestamp": "2015-09-15 09:27:20.859",
+            "serverId": "ws3xmi01",
+            "environment": "[itest, iSET_A, ehcache]",
+            "release": "4877"
+          },
+          "bookings": {
+            "bookings": [
+              {
+                "reference": "102-5908120",
+                "clientReference": "zffxus8c7rzfabxp8rgkgt27",
+                "creationDate": "2015-09-10",
+                "status": "CANCELLED",
+                "holder": {
+                  "name": "TEST NAME 1441873183275",
+                  "surname": "TEST SURNAME 1441873183276"
+                },
+                "hotel": {
+                  "checkIn": "2016-03-28",
+                  "checkOut": "2016-03-30",
+                  "name": "Castro Exclusive Residences Sant Pau",
+                  "destinationCode": "BCN",
+                  "rooms": [
+                    {
+                      "status": "CANCELLED",
+                      "code": "APT.1B-DP",
+                      "paxes": [
+                        {
+                          "type": "AD"
+                        }
+                      ],
+                      "rates": [
+                        {
+                          "amount": "0.000",
+                          "paymentType": "AT_WEB",
+                          "boardCode": "SC",
+                          "rooms": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "totalSellingRate": "0.000",
+                  "totalNet": "0.000",
+                  "currency": "EUR"
+                }
+              },
+              {
+                "reference": "102-5908121",
+                "clientReference": "zffxus8c7rzfabxp8rgkgt27",
+                "creationDate": "2015-09-10",
+                "status": "CANCELLED",
+                "holder": {
+                  "name": "TEST NAME 1441873195783",
+                  "surname": "TEST SURNAME 1441873195783"
+                },
+                "hotel": {
+                  "checkIn": "2016-03-28",
+                  "checkOut": "2016-03-30",
+                  "name": "Castro Exclusive Residences Sant Pau",
+                  "destinationCode": "BCN",
+                  "rooms": [
+                    {
+                      "status": "CANCELLED",
+                      "code": "APT.1B-DP",
+                      "paxes": [
+                        {
+                          "type": "AD"
+                        }
+                      ],
+                      "rates": [
+                        {
+                          "amount": "0.000",
+                          "paymentType": "AT_WEB",
+                          "boardCode": "SC",
+                          "rooms": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "totalSellingRate": "0.000",
+                  "totalNet": "0.000",
+                  "currency": "EUR"
+                }
+              },
+              {
+                "reference": "102-5908122",
+                "clientReference": "zffxus8c7rzfabxp8rgkgt27",
+                "creationDate": "2015-09-10",
+                "status": "CANCELLED",
+                "holder": {
+                  "name": "TEST NAME 1441873201757",
+                  "surname": "TEST SURNAME 1441873201757"
+                },
+                "hotel": {
+                  "checkIn": "2016-03-28",
+                  "checkOut": "2016-03-30",
+                  "name": "Castro Exclusive Residences Sant Pau",
+                  "destinationCode": "BCN",
+                  "rooms": [
+                    {
+                      "status": "CANCELLED",
+                      "code": "APT.1B-DP",
+                      "paxes": [
+                        {
+                          "type": "AD"
+                        }
+                      ],
+                      "rates": [
+                        {
+                          "amount": "0.000",
+                          "paymentType": "AT_WEB",
+                          "boardCode": "SC",
+                          "rooms": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "totalSellingRate": "0.000",
+                  "totalNet": "0.000",
+                  "currency": "EUR"
+                }
+              },
+              {
+                "reference": "102-5908160",
+                "clientReference": "zffxus8c7rzfabxp8rgkgt27",
+                "creationDate": "2015-09-10",
+                "status": "CANCELLED",
+                "holder": {
+                  "name": "TEST NAME 1441878812478",
+                  "surname": "TEST SURNAME 1441878812478"
+                },
+                "hotel": {
+                  "checkIn": "2016-03-28",
+                  "checkOut": "2016-03-30",
+                  "name": "Castro Exclusive Residences Sant Pau",
+                  "destinationCode": "BCN",
+                  "rooms": [
+                    {
+                      "status": "CANCELLED",
+                      "code": "APT.1B-DP",
+                      "paxes": [
+                        {
+                          "type": "AD"
+                        }
+                      ],
+                      "rates": [
+                        {
+                          "amount": "0.000",
+                          "paymentType": "AT_WEB",
+                          "boardCode": "SC",
+                          "rooms": 1
+                        }
+                      ]
+                    }
+                  ],
+                  "totalSellingRate": "0.000",
+                  "totalNet": "0.000",
+                  "currency": "EUR"
+                }
+              }
+            ],
+            "from": 1,
+            "to": 25,
+            "total": 119
+          }
+        }
+
+## Booking Details [/hotel-api/1.0/bookings/{booking_reference}]
+### Booking Detail [GET]        
+
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "462",
+            "timestamp": "2015-09-15 09:24:17.578",
+            "serverId": "ws3xmi01",
+            "environment": "[itest, iSET_A, ehcache]",
+            "release": "4877"
+          },
+          "booking": {
+            "reference": "1-2903614",
+            "clientReference": "MY BOOKING REFERENCE",
+            "creationDate": "2015-09-15",
+            "status": "CONFIRMED",
+            "creationUser": "XML",
+            "holder": {
+              "name": "HOLDER NAME",
+              "surname": "HOLDER SURNAME"
+            },
+            "hotel": {
+              "checkIn": "2015-09-19",
+              "checkOut": "2015-09-21",
+              "code": 6914,
+              "name": "BelleVue Vistanova",
+              "categoryCode": "3EST",
+              "categoryName": "3 STARS",
+              "destinationCode": "PMI",
+              "destinationName": "Majorca",
+              "zoneCode": 29,
+              "zoneName": "Palmanova",
+              "latitude": "39.511228",
+              "longitude": "2.540229",
+              "rooms": [
+                {
+                  "status": "CONFIRMED",
+                  "code": "DUS.ST",
+                  "name": "DOUBLE SINGLE USE",
+                  "paxes": [
+                    {
+                      "type": "AD",
+                      "age": 30,
+                      "surname": "ADULT SURNAAME"
+                    }
+                  ],
+                  "rates": [
+                    {
+                      "rateClass": "NOR",
+                      "net": "110.700",
+                      "rateName": "CG-TODOS1",
+                      "paymentType": "AT_WEB",
+                      "packaging": false,
+                      "boardCode": "HB",
+                      "boardName": "HALF BOARD",
+                      "cancellationPolicies": [
+                        {
+                          "amount": "55.350",
+                          "from": "2015-09-16T23:59:00+02:00"
+                        }
+                      ],
+                      "taxes": {
+                        "taxes": [
+                          
+                        ],
+                        "allIncluded": true
+                      },
+                      "rateBreakDown": {
+                        "agCommission": "0.00",
+                        "commissionVAT": "0.00",
+                        "commissionPCT": "0.00"
+                      },
+                      "rooms": 1
+                    }
+                  ]
+                }
+              ],
+              "totalSellingRate": "110.700",
+              "totalNet": "110.700",
+              "pendingAmount": "110.700",
+              "currency": "EUR",
+              "supplier": {
+                "name": "HOTELBEDS PRODUCT,S.L.U.",
+                "vatNumber": "B38877676"
+              }
+            }
+          }
+        }
+        
+## Booking Confirmation [/hotel-api/1.0/bookings]
+### Booking Confirmation [POST]        
+
++Request
+    Body
+    {
+      "holder": {
+        "name": "IntegrationTestFirstName",
+        "surname": "IntegrationTestLastName"
+      },
+      "rooms": [
+        {
+          "rateKey": "20160628|20160702|W|102|569|TPL.ST|CG-OPAQUE|RO||1~1~2|11~11|N@1816912017",
+          "paxes": [
+            {
+              "roomId": "1",
+              "type": "AD",
+              "age": 30,
+              "name": "First Adult Name",
+              "surname": "Surname"
+            },
+            {
+              "roomId": "1",
+              "type": "CH",
+              "age": 11,
+              "name": "First Adult Name"
+            },
+            {
+              "roomId": "1",
+              "type": "CH",
+              "age": 11,
+              "name": "First Adult Name"
+            }
+          ]
+        }
+      ],
+      "clientReference": "IntegrationAgen"
+    }
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "3542",
+            "timestamp": "2016-08-09 18:15:52.939",
+            "requestHost": "212.170.239.110",
+            "serverId": "sa3RKSJACHXE79K.env",
+            "environment": "[int, ignite]",
+            "release": "8f8516c469363d54ffa94ee260b468578804460f"
+          },
+          "booking": {
+            "reference": "235-3494554",
+            "clientReference": "TEST TEST",
+            "creationDate": "2016-08-09",
+            "status": "CONFIRMED",
+            "modificationPolicies": {
+              "cancellation": true,
+              "modification": true
+            },
+            "holder": {
+              "name": "HOLDER NAME",
+              "surname": "HOLDER SURNAME"
+            },
+            "hotel": {
+              "checkIn": "2016-12-19",
+              "checkOut": "2016-12-20",
+              "code": 97793,
+              "name": "Doubletree by Hilton Orlando Downtown",
+              "categoryCode": "4EST",
+              "categoryName": "4 STARS",
+              "destinationCode": "MCO",
+              "destinationName": "Orlando Area - Florida - FL",
+              "zoneCode": 6,
+              "zoneName": "Downtown",
+              "latitude": "28.558849",
+              "longitude": "-81.378806",
+              "rooms": [
+                {
+                  "status": "CONFIRMED",
+                  "id": 1,
+                  "code": "DBL.ST",
+                  "name": "DOUBLE",
+                  "paxes": [
+                    {
+                      "roomId": 1,
+                      "type": "AD",
+                      "age": 30,
+                      "name": "ADULT NAME"
+                    },
+                    {
+                      "roomId": 1,
+                      "type": "AD",
+                      "age": 30,
+                      "name": "ADULT NAME"
+                    }
+                  ],
+                  "rates": [
+                    {
+                      "rateClass": "SPE",
+                      "net": "79.09",
+                      "rateComments": "Extra beds on demand YES (without additional debit notes). Wi-fi YES (without additional debit notes)   . Minimum check-in age 21. . The person whose name is on the reservation must be at least 21 years of age to check in.\nThe hotel offers cribs and parking (self/valet) at an addtional fee paid locally at the hotel check in by guest\n",
+                      "paymentType": "AT_WEB",
+                      "packaging": false,
+                      "boardCode": "RO",
+                      "boardName": "ROOM ONLY",
+                      "cancellationPolicies": [
+                        {
+                          "amount": "79.09",
+                          "from": "2016-12-15T23:59:00-05:00"
+                        }
+                      ],
+                      "rooms": 1
+                    }
+                  ]
+                }
+              ],
+              "totalNet": "79.09",
+              "currency": "EUR",
+              "supplier": {
+                "name": "HOTELBEDS USA",
+                "vatNumber": "592952685"
+              }
+            },
+            "totalSellingRate": 79.09,
+            "totalNet": 79.09,
+            "pendingAmount": 79.09,
+            "currency": "EUR"
+          }
+        }
+        
+## Booking Cancellation [/hotel-api/1.0/bookings/{booking_reference}]
+### Booking Cancellation [GET]        
+
++ Response 200 (application/json)
+
+        {
+          "auditData": {
+            "processTime": "6568",
+            "timestamp": "2015-04-30 12:27:50.976",
+            "serverId": "ws3xmi01",
+            "environment": "[itest]",
+            "release": "2844"
+          },
+          "booking": {
+            "reference": "1-2260946",
+            "cancellationToken": "CX1:1-2260946",
+            "clientReference": "rELLENOdUMMYiNVÁLIDO_ESTESEBORRABA?",
+            "creationDate": "2015-04-30",
+            "status": "CANCELLED",
+            "totalAmount": 0,
+            "currency": "EUR",
+            "holder": {
+              "name": "HOLDER NAME,HOLDER",
+              "surname": "SURNAME"
+            },
+            "hotel": {
+              "code": "66699",
+              "name": "Blau Porto Petro Beach Resort & Spa",
+              "destination": "PMI",
+              "zone": "92",
+              "netPrice": 0,
+              "rooms": [
+                {
+                  "status": "CANCELLED",
+                  "code": "DUS-E10-ST",
+                  "rates": [
+                    {
+                      "checkIn": "2015-07-19",
+                      "checkOut": "2015-07-21",
+                      "rateName": "CG-VARIOS",
+                      "rateKey": "66699|DUS-E10-ST|CG-VARIOS|1|HB-E10||1~1~0|20150719|20150721#~~~~~~~~~~~",
+                      "rateClass": "NOR",
+                      "paymentType": "AT_WEB",
+                      "packaging": false,
+                      "boardCode": "HB-E10",
+                      "net": 0.000,
+                      "gross": 0.000,
+                      "currency": "EUR",
+                      "rooms": 1
+                    }
+                  ]
+                }
+              ],
+              "supplier": {
+                "name": "HOTELBEDS SPAIN, S.L.U.",
+                "vatNumber": "B28916765"
+              },
+              "currency": "EUR",
+              "minPrice": 0.000,
+              "maxPrice": 0.000
+            }
+          }
+        }
